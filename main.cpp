@@ -2,12 +2,13 @@
 #include <fstream>
 #include <random>
 #include <iomanip>
-
+#include "lab2.hpp"
 using namespace std;
 const int intlowerbound {512};
 const int intupperbound{1024};
 const int dblLowerbound {50};
 const int dblUpperbound{90};
+
 default_random_engine dblgenerator(time(0));
 uniform_real_distribution<double>
         distribution(dblLowerbound, dblUpperbound);
@@ -30,7 +31,6 @@ int main() {
     }
     for (int x = 0; x < sequenceLimit;x++) {
         sequencePair[x] = generateRandDbl();
-        cout << sequencePair[x] << endl;
     }
     ofstream file;
     file.open ("Reading.txt");
@@ -40,6 +40,7 @@ int main() {
         file << x << " " << sequencePair[x] << " \n";
     }
     file.close();
+    showEntries();
     return 0;
 
 }
