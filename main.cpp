@@ -8,14 +8,14 @@ const int intlowerbound {512};
 const int intupperbound{1024};
 const int dblLowerbound {50};
 const int dblUpperbound{90};
+default_random_engine dblgenerator(time(0));
+uniform_real_distribution<double>
+        distribution(dblLowerbound, dblUpperbound);
 
 double generateRandDbl() {
-    default_random_engine generator(time(0));
-    uniform_real_distribution<double>
-            distribution(dblLowerbound, dblUpperbound);
-    double randDbl = distribution(generator);
-    return randDbl;
+    double randDbl = distribution(dblgenerator);
 
+    return randDbl;
 }
 int main() {
     random_device rd;
@@ -30,11 +30,14 @@ int main() {
     }
     for (int x = 0; x < sequenceLimit;x++) {
         sequencePair[x] = generateRandDbl();
+        cout << sequencePair[x] << endl;
     }
     ofstream file;
     file.open ("Reading.txt");
     for (int x = 0; x < sequenceLimit;x++){
-        file << sequence[x] << " " << setprecision(3) <<sequencePair[x] << " \n";
+        file << fixed;
+        file << setprecision(3);
+        file << x << " " << sequencePair[x] << " \n";
     }
     file.close();
     return 0;
