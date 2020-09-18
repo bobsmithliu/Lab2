@@ -4,7 +4,7 @@
 
 #ifndef LAB2_LAB2_HPP
 #define LAB2_LAB2_HPP
-int sort();
+void sorting();
 int showEntries();
 
 #endif //LAB2_LAB2_HPP

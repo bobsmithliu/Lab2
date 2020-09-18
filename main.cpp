@@ -40,7 +40,7 @@ int main() {
         file << x << " " << sequencePair[x] << " \n";
     }
     file.close();
-    showEntries();
+    sorting();
     return 0;
 
 }
