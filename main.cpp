@@ -2,7 +2,7 @@
 #include <fstream>
 #include <random>
 #include <iomanip>
-#include "lab2.hpp"
+#include "sort.hpp"
 using namespace std;
 const int intlowerbound {512};
 const int intupperbound{1024};
